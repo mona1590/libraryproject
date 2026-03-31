@@ -1,0 +1,66 @@
+/* ====== Task 1 (Links) ====== */
+.link-box {
+    display: block;  
+    padding: 15px;
+    text-align: center;
+    margin: 10px auto;
+    text-decoration: none;
+    width: 60%;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    
+}
+.title-box {
+    background-color: rgb(54, 160, 196);  
+    padding: 15px;
+    text-align: center;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.google { background-color: rgb(100, 156, 151); }
+.youtube { background-color: gray; }
+.github { background-color: rgb(70, 143, 110); }
+
+.link-box:link { color: rgb(5, 4, 5); }       
+.link-box:visited { color: #330c9d; }             
+.link-box:hover { color: #ffff00; }                
+.link-box:active { color: #ff0000; }  
+
+/* ====== Task 2 ====== */
+h1 {
+    text-align: center;
+    color: darkblue;
+}
+.content-box {
+    text-align: center;
+    margin: 20px auto;
+    width: 60%;
+}
+
+/* ====== Task 3 ====== */
+ul, ol {
+    margin: 20px;
+    padding: 10px;
+}
+
+/* ====== Task 4 ====== */
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th {
+    background-color: gray;
+    color: white;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
