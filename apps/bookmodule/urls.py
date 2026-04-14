@@ -16,4 +16,10 @@ urlpatterns = [
 
     # Lab 6
     path('search/', views.search, name='search'),
+
+    #LAP7
+    path('add/', views.add_books, name='add_books'),
+    path('query/', views.simple_query, name='simple_query'),
+    path('delete/', views.delete_all, name='delete_all'),
+    path('complex/query/', views.complex_query, name='complex_query'),
 ]

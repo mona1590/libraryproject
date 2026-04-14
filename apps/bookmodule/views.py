@@ -1,5 +1,46 @@
 from django.shortcuts import render # type: ignore
 
+#LAP7
+from django.http import HttpResponse # type: ignore
+from .models import Book
+
+def add_books(request):
+    b1 = Book(title='Continuous Delivery', author='J.Humble and D. Farley', price=120.00, edition=3)
+    b1.save()
+
+    b2 = Book.objects.create(title='Reversing: Secrets of Reverse Engineer', author='E. Eilam', price=97.00, edition=2)
+
+    b3 = Book.objects.create(title='The Hundred-Page Machine Learning Book', author='Andriy Burkov', price=100.00, edition=4)
+
+    b4 = Book.objects.create(title='Data and AI', author='Ali', price=150.00, edition=3)
+
+    return HttpResponse("Books added successfully")
+
+def simple_query(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def delete_all(request):
+    Book.objects.all().delete()
+    return HttpResponse("All books deleted")
+
+def complex_query(request):
+    mybooks = Book.objects.filter(
+        author__isnull=False
+    ).filter(
+        title__icontains='and'
+    ).filter(
+        edition__gte=2
+    ).exclude(
+        price__lte=100
+    )[:10]
+
+    if len(mybooks) >= 1:
+        return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+    else:
+        return render(request, 'bookmodule/index.html')
+
+#LAP6
 def __getBooksList():
     book1 = {'id':12344321, 'title':'Continuous Delivery', 'author':'J.Humble and D. Farley'}
     book2 = {'id':56788765,'title':'Reversing: Secrets of Reverse Engineering', 'author':'E. Eilam'}
