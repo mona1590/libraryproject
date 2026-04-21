@@ -1,8 +1,69 @@
 from django.shortcuts import render # type: ignore
-
 #LAP7
 from django.http import HttpResponse # type: ignore
-from .models import Book
+from .models import Book , Student, Address
+
+#LAP8
+from django.db.models import Q # type: ignore
+from django.db.models import Count, Sum, Avg, Max, Min # type: ignore
+from django.http import HttpResponse # type: ignore
+from django.db.models import Count # type: ignore
+
+#LAP8
+def task1(request):
+    books = Book.objects.filter(Q(price__lte=80))
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task2(request):
+    books = Book.objects.filter(
+        Q(edition__gt=3) &
+        (Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task3(request):
+    books = Book.objects.filter(
+        Q(edition__lte=3) &
+        ~(Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task4(request):
+    books = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task5(request):
+    stats = Book.objects.aggregate(
+        total_books=Count('id'),
+        total_price=Sum('price'),
+        avg_price=Avg('price'),
+        max_price=Max('price'),
+        min_price=Min('price')
+    )
+    return render(request, 'bookmodule/task5.html', {'stats': stats})
+
+def add_students(request):
+    # Cities
+    c1 = Address.objects.create(city="Riyadh")
+    c2 = Address.objects.create(city="Jeddah")
+
+    # Students
+    Student.objects.create(name="Ali", age=22, address=c1)
+    Student.objects.create(name="Sara", age=21, address=c1)
+    Student.objects.create(name="Fahad", age=23, address=c2)
+
+    return HttpResponse("Students added successfully")
+
+def task6(request):
+    students = Student.objects.select_related('address').all()
+    return render(request, 'bookmodule/task6.html', {'students': students})
+
+def task7(request):
+    cities = Address.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/task7.html', {'cities': cities})
+
+
+#LAP7
 
 def add_books(request):
     b1 = Book(title='Continuous Delivery', author='J.Humble and D. Farley', price=120.00, edition=3)
@@ -13,6 +74,13 @@ def add_books(request):
     b3 = Book.objects.create(title='The Hundred-Page Machine Learning Book', author='Andriy Burkov', price=100.00, edition=4)
 
     b4 = Book.objects.create(title='Data and AI', author='Ali', price=150.00, edition=3)
+
+    b5 = Book.objects.create(title='Cheap Book', author='Test', price=50.00, edition=3)
+
+    b6 = Book.objects.create(title='Quantum Computing Basics', author='John Quantum', price=200.00, edition=5)
+
+    b7 = Book.objects.create(title='Quick Python Guide', author='Ali Qureshi', price=70.00, edition=7)
+
 
     return HttpResponse("Books added successfully")
 
