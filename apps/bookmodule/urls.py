@@ -33,4 +33,14 @@ urlpatterns = [
     path('lab8/task6/', views.task6, name='task6'),
     path('lab8/task7/', views.task7,name='task7'),
 
+
+    #LAP9
+    path('lab9/task1/', views.task1_L9,name='task1_L9'),
+    path('lab9/task2/', views.task2_L9, name='task2_L9'),
+    path('lab9/task3/', views.task3_L9, name='task3_L9'),
+    path('lab9/task4/', views.task4_L9, name='task4_L9'),
+    path('lab9/task5/', views.task5_L9, name='task5_L9'),
+    path('lab9/task6/', views.task6_L9, name='task6_L9'),
+
+
 ]

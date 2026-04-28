@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1 - Book Availability Percentage</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #3498db; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Book List with Availability Percentage</h1>
+    <p>Total books: <strong>{{ total_books }}</strong></p>
+    {% if books %}
+    <table>
+        <thead><tr><th>#</th><th>Title</th><th>Price</th><th>Quantity</th><th>Rating</th><th>Publisher</th><th>Availability %</th></tr></thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ book.title }}</td>
+                <td>${{ book.price }}</td>
+                <td>{{ book.quantity }}</td>
+                <td>{{ book.rating }}/5{% for i in "12345"|make_list %}{% if forloop.counter <= book.rating %}⭐{% else %}☆{% endif %}{% endfor %}</td>
+                <td>{{ book.publisher.name|default:"N/A" }}</td>
+                <td>{{ book.availability_percent|floatformat:2 }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No books found.</p>
+    {% endif %}
+</body>
+</html>
