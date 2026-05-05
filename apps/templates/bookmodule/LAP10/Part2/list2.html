@@ -1,0 +1,26 @@
+<h1>Book List</h1>
+
+<a href="/books/LAP10_part2/add2">Add New Book</a>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Edition</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for book in books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.edition }}</td>
+        <td>
+            <a href="/books/LAP10_part2/edit2/{{ book.id }}">Edit</a>
+            <a href="/books/LAP10_part2/delete2/{{ book.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,11 @@
+<h2>Highly Rated Books</h2>
+<table border = "1">
+<tr><th>Publisher</th><th>Count</th><th>Quantity</th></tr>
+{% for p in publishers %}
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.high_rated }}</td>
+<td>{{ p.quantity }}</td>
+</tr>
+{% endfor %}
+</table>

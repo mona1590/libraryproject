@@ -1,28 +1,7 @@
-{% extends "layouts/base.html" %}
+{% for obj in books %}
 
-{% block content %}
+ID: {{obj.id}}, Title: {{obj.title}}
 
-<h2>Books List</h2>
+<hr>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Price</th>
-        <th>Edition</th>
-    </tr>
-
-    {% for book in books %}
-    <tr>
-        <td>{{ book.id }}</td>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.price }}</td>
-        <td>{{ book.edition }}</td>
-    </tr>
-    {% endfor %}
-
-</table>
-
-{% endblock %}
+{% endfor %}

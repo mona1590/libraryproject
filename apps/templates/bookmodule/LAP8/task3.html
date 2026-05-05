@@ -1,0 +1,13 @@
+<h2>Edition <= 3 AND does NOT contain 'qu'</h2>
+
+<table border="1">
+<tr><th>Title</th><th>Author</th><th>Edition</th></tr>
+
+{% for book in books %}
+<tr>
+<td>{{ book.title }}</td>
+<td>{{ book.author }}</td>
+<td>{{ book.edition }}</td>
+</tr>
+{% endfor %}
+</table>

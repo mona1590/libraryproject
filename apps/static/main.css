@@ -1,66 +1,95 @@
-/* ====== Task 1 (Links) ====== */
+/* task 1 links.html*/
 .link-box {
-    display: block;  
-    padding: 15px;
+    display: block;
+    padding: 30px;
     text-align: center;
-    margin: 10px auto;
-    text-decoration: none;
-    width: 60%;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    
-}
-.title-box {
-    background-color: rgb(54, 160, 196);  
-    padding: 15px;
-    text-align: center;
-    margin: 20px auto;
-    width: 60%;
-    border-radius: 8px;
-    font-weight: bold;
+    font-size: 18px;
+    margin: 0px; 
 }
 
-.google { background-color: rgb(100, 156, 151); }
-.youtube { background-color: gray; }
-.github { background-color: rgb(70, 143, 110); }
+#link1 { background-color: #acf3bb; color: #d04d39; }
+#link2 { background-color: #555555; color: #e2c965; }
+#link3 { background-color: #000000; color: #ffffff; }
 
-.link-box:link { color: rgb(5, 4, 5); }       
-.link-box:visited { color: #330c9d; }             
-.link-box:hover { color: #ffff00; }                
-.link-box:active { color: #ff0000; }  
+a:link {
+    opacity: 1;
+}
 
-/* ====== Task 2 ====== */
+a:visited {
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+a:active {
+    opacity: 0.6;
+}
+
+/* task 2 formatting.html*/
 h1 {
-    text-align: center;
-    color: darkblue;
+    text-align: left;
+    color: #008000;
+    font-size: 35px;
+    background-color: #f5f5dc;
+    padding: 20px;
 }
-.content-box {
-    text-align: center;
-    margin: 20px auto;
-    width: 60%;
-}
-
-/* ====== Task 3 ====== */
-ul, ol {
-    margin: 20px;
-    padding: 10px;
+p {
+    text-align: left;
+    color: #000000;
+    font-size: 20px;
 }
 
-/* ====== Task 4 ====== */
-table {
-    width: 60%;
-    border-collapse: collapse;
-    margin: 20px auto;
-}
+/* task 3 listing.html*/
 
-th {
-    background-color: gray;
+.listing-title {
+    background-color: #5f9ea0; 
     color: white;
+    padding: 10px;
+    text-align: left;
+    font-size: 35px;
 }
 
-td, th {
+/* task 4 tables.html*/
+
+
+.table1-title {
+    font-size: 20px;
+    width: 8%;         
+    line-height: 1;
+    margin: 0 auto;      
+    text-align: center;   
+    font-weight: bold;
+}
+.table1 {
     border: 1px solid black;
-    padding: 10px;
+    margin: 0 auto;
+}
+.table1 th, .table1 td {
+    border: 1px solid black;
+    text-align: center;
+}
+.table2-title {
+    padding-top: 15px;
+    font-size: 18px;
+    margin: 0 auto;      
+    text-align: center;  
+    font-weight: lighter;
+}
+.img-cell{
+    padding: 6px;
+}
+.desert-img{
+    width: 200px;
+}
+.table2 {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.table2 th, .table2 td {
+    border: 1px solid black;
     text-align: center;
 }

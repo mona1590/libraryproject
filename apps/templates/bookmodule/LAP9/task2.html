@@ -1,0 +1,10 @@
+<h2>Publishers Total Stock</h2>
+<table border = "1">
+<tr><th>Publisher</th><th>Total Stock</th></tr>
+{% for p in publishers %}
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.total_stock }}</td>
+</tr>
+{% endfor %}
+</table>

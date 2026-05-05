@@ -1,46 +1,59 @@
-from django.urls import path # type: ignore
-from . import views
+from django.urls import path 
+from . import views 
 
+urlpatterns = [ 
+    path('', views.index), 
+    path('index2/<int:val1>/', views.index2),
+    path('<int:bookId>', views.viewbook),
+    path('', views.index, name= "books.index"),
+    path('list_books/', views.list_books, name= "books.list_books"),
+    path('<int:bookId>/', views.viewbook, name="books.view_one_book"),
+    path('aboutus/', views.aboutus, name="books.aboutus"),
 
-urlpatterns = [
-    path('', views.index, name='books.index'),
-    path('list_books/', views.list_books, name='books.list_books'),
-    path('<int:bookId>/', views.viewbook, name='books.view_one_book'),
-    path('aboutus/', views.aboutus, name='books.aboutus'),
+    path('html5/links', views.links),
+    path('html5/text/formatting', views.formatting),
+    path('html5/listing', views.listing),
+    path('html5/tables', views.tables),
+    
+    path('search', views.search_books),
+    
+    path('insert', views.insert_books),
 
-    # Lab 5
-    path('html5/links/', views.links, name='links'),
-    path('html5/text/formatting/', views.formatting, name='formatting'),
-    path('html5/listing/', views.listing, name='listing'),
-    path('html5/tables/', views.tables, name='tables'),
+    path('simple/query', views.simple_query),
+    path('complex/query', views.complex_query),
 
-    # Lab 6
-    path('search/', views.search, name='search'),
-
-    #LAP7
-    path('add/', views.add_books, name='add_books'),
-    path('query/', views.simple_query, name='simple_query'),
-    path('delete/', views.delete_all, name='delete_all'),
-    path('complex/query/', views.complex_query, name='complex_query'),
 
     #LAP8
-    path('lab8/task1/', views.task1, name='task1'),
-    path('lab8/task2/', views.task2, name='task2'),
-    path('lab8/task3/', views.task3, name='task3'),
-    path('lab8/task4/', views.task4, name='task4'),
-    path('lab8/task5/', views.task5, name='task5'),
-    path('lab8/add_students/', views.add_students),
-    path('lab8/task6/', views.task6, name='task6'),
-    path('lab8/task7/', views.task7,name='task7'),
-
-
+    path('LAP8/task1', views.task1),
+    path('LAP8/task2', views.task2),
+    path('LAP8/task3', views.task3),
+    path('LAP8/task4', views.task4),
+    path('LAP8/task5', views.task5),
+    path('LAP8/task7', views.task7),
+    
+    
     #LAP9
-    path('lab9/task1/', views.task1_L9,name='task1_L9'),
-    path('lab9/task2/', views.task2_L9, name='task2_L9'),
-    path('lab9/task3/', views.task3_L9, name='task3_L9'),
-    path('lab9/task4/', views.task4_L9, name='task4_L9'),
-    path('lab9/task5/', views.task5_L9, name='task5_L9'),
-    path('lab9/task6/', views.task6_L9, name='task6_L9'),
-
+    path('LAP9/task1', views.lab9task1),
+    path('LAP9/task2', views.lab9task2),
+    path('LAP9/task3', views.lab9task3),
+    path('LAP9/task4', views.lab9task4),
+    path('LAP9/task5', views.lab9task5),
+    path('LAP9/task6', views.lab9task6),
+    
+ 
+    #LAP10
+    path('LAP10_part1/list', views.list, name='list'),
+    path('LAP10_part1/add', views.add, name='add'),
+    path('LAP10_part1/edit/<int:id>', views.edit, name='edit'),
+    path('LAP10_part1/delete/<int:id>', views.delete, name='delete'),
+    
+    path('LAP10_part2/list2', views.list2, name='list2'),
+    path('LAP10_part2/add2', views.add2, name='add2'),
+    path('LAP10_part2/edit2/<int:id>', views.edit2, name='edit2'),
+    path('LAP10_part2/delete2/<int:id>', views.delete2, name='delete2'),
+    
+    #LAP11
+    path('LAP11/add_book', views.add_book, name='add_book'),
+    path('LAP11/add_book_image/', views.add_book_image, name='add_book_image'),
 
 ]

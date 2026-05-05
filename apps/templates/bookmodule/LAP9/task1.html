@@ -1,0 +1,16 @@
+<h2>Books Availability Percentage</h2>
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Percentage %</th>
+    </tr>
+
+    {% for book in books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.quantity }}</td>
+        <td>{{ book.percentage }}%</td>
+    </tr>
+    {% endfor %}
+</table>

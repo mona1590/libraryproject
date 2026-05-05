@@ -1,0 +1,12 @@
+<h2>Students per City</h2>
+
+<table border="1">
+<tr><th>City</th><th>Students</th></tr>
+
+{% for item in data %}
+<tr>
+<td>{{ item.city }}</td>
+<td>{{ item.count }}</td>
+</tr>
+{% endfor %}
+</table>

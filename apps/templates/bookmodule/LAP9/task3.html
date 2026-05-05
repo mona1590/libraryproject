@@ -1,0 +1,10 @@
+<h2>Oldest Book per Publisher</h2>
+<table border = "1">
+<tr><th>Publisher</th><th>Oldest Date</th></tr>
+{% for p in publishers %}
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.oldest_date }}</td>
+</tr>
+{% endfor %}
+</table>

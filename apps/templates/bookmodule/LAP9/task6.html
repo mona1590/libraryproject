@@ -1,0 +1,10 @@
+<h2>Filtered Books</h2>
+<table border="1">
+<tr><th>Publisher</th><th>Books Count</th></tr>
+{% for p in publishers %}
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.filtered_books }}</td>
+</tr>
+{% endfor %}
+</table>
