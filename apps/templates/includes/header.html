@@ -1,4 +1,14 @@
-{% with request.resolver_match.url_name as url_name %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+{% block stylesheets %}{% endblock stylesheets %}
+</head>
+
+
 
 <div class="topnav">
 

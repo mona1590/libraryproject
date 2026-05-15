@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 13 </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+
+        .section {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #myDiv {
+            width: 300px;
+            height: 100px;
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        #toggleDiv {
+            width: 300px;
+            height: 80px;
+            background-color: lightyellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #hoverDiv {
+            width: 300px;
+            height: 80px;
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #myList {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lab 13 </h1>
+
+    <!-- Task 1 -->
+    <div class="section">
+        <h2>Task 1: Change Background Color</h2>
+        <p>Change the background color of the div to light blue when the button is clicked.</p>
+        <button onclick="changeColor()">Change Color</button>
+        <div id="myDiv">This is myDiv</div>
+    </div>
+
+    <!-- Task 2 -->
+    <div class="section">
+        <h2>Task 2: Replace Text</h2>
+        <p>Replace the text inside myDiv with "Text changed!" when the button is clicked.</p>
+        <button onclick="changeText()">Change Text</button>
+    </div>
+
+    <!-- Task 3 -->
+    <div class="section">
+        <h2>Task 3: Add List Item</h2>
+        <p>Add a new list item labeled "New Item X" to the unordered list below.</p>
+        <button onclick="addListItem()">Add Item</button>
+        <ul id="myList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+    </div>
+
+    <!-- Task 4 -->
+    <div class="section">
+        <h2>Task 4: Toggle Div Visibility</h2>
+        <p>Hide the div if it is visible, and show it if it is hidden.</p>
+        <button onclick="toggleDiv()">Toggle Div</button>
+        <div id="toggleDiv">This div can be toggled</div>
+    </div>
+
+    <!-- Task 5 -->
+    <div class="section">
+        <h2>Task 5: Hover Effects</h2>
+        <p>Hover over the div below to see the effect.</p>
+        <div id="hoverDiv"
+             onmouseover="hoverOver()"
+             onmouseout="hoverOut()">
+            Hover over me!
+        </div>
+    </div>
+
+    <script>
+        // Task 1: Change background color of myDiv to light blue
+        function changeColor() {
+            var myDiv = document.getElementById("myDiv");
+            myDiv.style.backgroundColor = "lightblue";
+        }
+
+        // Task 2: Replace the text inside myDiv
+        function changeText() {
+            var myDiv = document.getElementById("myDiv");
+            myDiv.innerHTML = "Text changed!";
+        }
+
+        // Task 3: Add a new list item to myList
+        var itemCount = 2;
+
+        function addListItem() {
+            itemCount = itemCount + 1;
+            var myList = document.getElementById("myList");
+            var newItem = document.createElement("li");
+            newItem.innerHTML = "New Item " + itemCount;
+            myList.appendChild(newItem);
+        }
+
+        // Task 4: Toggle visibility of toggleDiv
+        function toggleDiv() {
+            var toggleDiv = document.getElementById("toggleDiv");
+            if (toggleDiv.style.display === "none") {
+                toggleDiv.style.display = "flex";
+            } else {
+                toggleDiv.style.display = "none";
+            }
+        }
+
+        // Task 5: Hover effects for hoverDiv
+        function hoverOver() {
+            var hoverDiv = document.getElementById("hoverDiv");
+            hoverDiv.style.backgroundColor = "lightcoral";
+            hoverDiv.style.fontSize = "20px";
+        }
+
+        function hoverOut() {
+            var hoverDiv = document.getElementById("hoverDiv");
+            hoverDiv.style.backgroundColor = "lightgray";
+            hoverDiv.style.fontSize = "16px";
+        }
+    </script>
+
+</body>
+</html>

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import BookForm, Book11Form,  BookImageForm
 from .models import Book, Booklab9, Publisher
+from django.contrib.auth.decorators import login_required
+
 
 def simple_query(request):
     mybooks=Book.objects.filter(title__icontains='and') # <- multiple objects
@@ -40,15 +42,19 @@ def viewbook(request, bookId):
     if book2['id'] == bookId: targetBook = book2
     context = {'book':targetBook} 
     return render(request, 'bookmodule/show.html', context)
+
+
 def index(request):
     return render(request, "bookmodule/index.html")
+@login_required(login_url='login')
 def list_books(request):
     return render(request, 'bookmodule/list_books.html')
+@login_required(login_url='login')
 def viewbook(request, bookId):
     return render(request, 'bookmodule/one_book.html')
+@login_required(login_url='login')
 def aboutus(request):
     return render(request, 'bookmodule/aboutus.html')
-
 
 def links(request):
     return render(request, 'links.html')
@@ -269,7 +275,7 @@ def delete2(request, id):
     return redirect('list2')
 
 
- #LAP1
+ #LAP11
 def add_book(request):
     if request.method == 'POST':
         form = Book11Form(request.POST)
@@ -293,3 +299,10 @@ def add_book_image(request):
         form = BookImageForm()
 
     return render(request, 'bookmodule/LAP11/add_book_image.html', {'form': form})
+
+
+
+
+ #LAP13
+def lab13(request):
+    return render(request, 'bookmodule/lab13.html')

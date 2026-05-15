@@ -56,4 +56,8 @@ urlpatterns = [
     path('LAP11/add_book', views.add_book, name='add_book'),
     path('LAP11/add_book_image/', views.add_book_image, name='add_book_image'),
 
+
+    #LAP13
+    path('lab13/', views.lab13),
+
 ]

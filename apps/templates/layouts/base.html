@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% load static %}
+
 <head>
   <title>{% block title %} {% endblock title %}</title>
   <meta name="keywords" content="Books, recent, Learning, library">
@@ -8,20 +9,33 @@
   <meta name="author" content="author name">
   <link rel="icon" href="{% static 'qu-icon.jpeg' %}">
   <meta charset="UTF-8">
- 
+
   <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- include css file -->
- 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
+
+
+
+
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }}">
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% endif %}
   {% block stylesheets %}{% endblock stylesheets %}
 </head>
+
 <body>
-    
-    {% include "includes/header.html" %}
- 
-    {% block content %} {% endblock content %}
- 
-    {% include "includes/footer.html" %}
+
+  {% include "includes/header.html" %}
+
+  {% block content %} {% endblock content %}
+
+  {% include "includes/footer.html" %}
 
 </body>
+
 </html>
